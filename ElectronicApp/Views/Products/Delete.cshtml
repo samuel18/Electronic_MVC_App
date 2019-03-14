@@ -1,0 +1,60 @@
+﻿@model ElectronicApp.Models.Product
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Delete @Model.ProductName </h2>
+<form action="/products/delete/@Model.ProductID" method="post">
+    <table class="table">
+        <tr>
+            <th>
+                <label for="ProductID">Product Name </label>
+            </th>
+            <td>
+                <input type="hidden" name="ProductID" value="@Model.ProductID" />
+                @Model.ProductName
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Price">Price</label>
+            </th>
+            <td>@Model.Price.Value.ToString("")</td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="AvailabilityStatus">Availabibility of Purchase</label>
+            </th>
+            <td>@Model.AvailabilityStatus</td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="CategoryID">Category Name</label>
+            </th>
+            <td>@Model.Category.CategoryName</td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="BrandID">Brand ID</label>
+            </th>
+            <td>@Model.Brand.BrandName</td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Active">Active</label>
+            </th>
+            <td>@Model.Active</td>
+        </tr>
+    </table>
+    <div>Are you sure to delete this product?</div>
+    <button type="submit" class="btn btn-danger">Remove</button>
+    <a href="/products/index" class="btn btn-danger">Cancel</a>
+</form>
+
+
